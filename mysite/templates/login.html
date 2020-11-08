@@ -1,0 +1,12 @@
+{# mysite/templates/login.html #}
+
+{% extends "base.html" %}
+{% block content %}
+<h1>My Blog Login</h1>
+<form action="" method="POST">{% csrf_token %}
+  {{ form.as_p }}
+  <p><input type="submit" value="Log In"></p>
+</form>
+{% endblock %}
+
+<!-- In a web application, submitting forms is potentially hazardous. Data is being sent to our application from some remote place. If that data is going to alter the state of our application, we must use POST. Even so, we are vulnerable to Cross-Site Request Forgery, a common attack vector. Django provides a convenient system to fight this. In fact, for POST requests, it requires that you use it. The Django middleware that does this is enabled by default. All you need to do is include the {% csrf_token %} tag in your form. -->

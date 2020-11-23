@@ -9,12 +9,13 @@ from django.shortcuts import get_object_or_404
 
 class BlogListView(ListView):
     model = Post
-    template_name = 'blogging/list_class_based.html'
-    queryset = Post.objects.exclude(published_date__exact=None).order_by('-published_date')
+    template_name = "blogging/list_class_based.html"
+    queryset = Post.objects.exclude(published_date__exact=None).order_by(
+        "-published_date"
+    )
 
 
 class BlogDetailView(DetailView):
     model = Post
     queryset = Post.objects.exclude(published_date__exact=None)
-    template_name = 'blogging/detail_class_based.html'
-   
+    template_name = "blogging/detail_class_based.html"
